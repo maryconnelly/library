@@ -1,0 +1,33 @@
+
+#bookForm {
+	
+	border: solid black 1px;
+
+
+}
+
+#form-container {
+	border: black solid 1px;
+	display: none;
+}
+
+label {
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 800;
+}
+
+input {
+	width: auto;
+	height: auto;
+	border: black solid 1px;	
+}
+
+
+.book-card {
+	display: grid;
+	border: black solid 1px;
+	height: 100px;
+	width: 100px;
+
+
+}
