@@ -1,24 +1,111 @@
 
+* {
+	font-family: 'Courier New', Courier, monospace;
+	color: #0F0A0A;
+}
+
 body {
+	height: 100vh;
 	display: grid;
 	grid-template: 1fr 5fr / 2fr 4fr;
 	
 }
+
+#header {
+	background-color: #D96C06;
+	display: grid;
+	width: 100%;
+	grid-area: 1 / 1 / 2 / 3;
+	grid-template: 1fr / 1fr 2fr;
+	border-radius: 8px;
+}
+
+h1 {
+	grid-area: 1 / 1 / 3 / 3;
+	place-self: center;
+}
+
+button {
+	width: 150px;
+	height: 40px;
+	grid-area: 1 / 1 / 2 / 2;
+	place-self: center;
+	background-color: #F5EFED;
+	border: none;
+	border-radius: 8px;
+	font-weight: 900;
+	font-size: 20px;
+	
+
+}
+
+#card-container {
+	display: grid;
+	grid-area: 2 / 1 / 3 / 3;
+	background-color: #2292A4;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+#sidebar {
+	background-color: #BDBF09;
+	display: grid;
+	grid-area: 2 / 1 / 3 / 2;
+	grid-template: 1fr / 1fr;
+	padding-left: 30px;
+
+}
+
 form {
 	display: none;
 
-
 }
 
+#text-input-container {
+	display: grid;
+	grid-area: 1 / 1 / 2 / 2; 
+}
+
+#radio-container {
+	display: grid; 
+	grid-template: repeat(3, 1fr) / .1fr 1fr;
+}
 
 label {
-	font-family: 'Courier New', Courier, monospace;
 	font-weight: 800;
+	align-self: center;
+	justify-self: start;
 }
 
-input {
-	width: auto;
-	height: auto;
-	border: black solid 1px;	
+input[type="text"] {
+	width: 300px;
+	height: 25px;
+	background-color: #F5EFED;	
+	border: none;
 }
 
+input[type="radio"] {
+	height: 15px;
+	align-self: center;
+	justify-self: start;
+}
+
+
+#new-card {
+	background-color: #F5EFED;
+	height: 100px;
+	width: 150px;
+	padding: 20px;
+	border-radius: 8px;
+	font-weight: 500;
+	font-size: 14px;
+
+
+}
+
+button[type="submit"] {
+	grid-area: 3 / 1 / 4 / 2;
+	align-self: start;
+
+
+}

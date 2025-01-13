@@ -7,22 +7,41 @@
 	<title>Project: Library</title>
 </head>
 <body>
-	
-<button type="button" id="add">Add Book</button>
 
-	<form action="">	
+<div id="header"> 
+	<h1>My Library</h1>
 
-<label for="title">Title</label>
-<input type="text" name="title" id="title">
+	<button type="button" id="add">Add Book</button>
 
-<label for="author">Author</label>
-<input type="text" name="author" id="author">
+</div>
 
-<label for="pages">Number of Pages</label>
-<input type="text" name="pages" id="pages">
 
-<label for="read">Read</label>
-<input type="checkbox" name="read" id="read">
+<form action="">	
+
+<div id="text-input-container">	
+	<label for="title">Title</label>
+	<input type="text" name="title" id="title">
+
+	<label for="author">Author</label>
+	<input type="text" name="author" id="author">
+
+	<label for="pages">Number of Pages</label>
+	<input type="text" name="pages" id="pages">
+</div>
+
+<div id="radio-container">
+	<input type="radio" id="option1">
+	<label for="option1">Already read this book.</label>
+
+	<input type="radio" id="option2">
+	<label for="option2">Currently reading this book.</label>
+
+	<input type="radio" id="option3">
+	<label for="option3">Haven't started reading this book yet.</label>
+</div>
+
+<button type="submit">Add Book</button>
+
 </form>
 
 

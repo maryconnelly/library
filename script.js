@@ -24,20 +24,12 @@ function displayBook() {
 	myLibrary.forEach(Book => {
 
 		const cardContainer = document.querySelector('#card-container');
-			cardContainer.style.display = "grid";
-			cardContainer.style.gridArea = "2 / 2 / 3 / 3";
-			cardContainer.style.border = "solid black 1px";
-			cardContainer.style.height = "600px";
 		document.body.appendChild(cardContainer);
 
 		const newCard = document.createElement('div');
+		cardContainer.appendChild(newCard);
+			newCard.id = "new-card";
 			newCard.textContent = `${Book.info}`;
-			newCard.style.border = "black solid 1px";
-			newCard.style.height = "100px";
-			newCard.style.width = "150px";
-			newCard.style.fontFamily = "'Courier New', Courier, monospace";
-			newCard.style.padding = "20px";
-			cardContainer.appendChild(newCard);
 
 	})
 }
@@ -47,23 +39,33 @@ displayBook();
 //add book button 
 
 function addBookButton() {
-
+	const header = document.querySelector("#header");
 	const addBookButton = document.querySelector("#add");
-	document.body.appendChild(addBookButton);
+	header.appendChild(addBookButton);
 	addBookButton.addEventListener('click', () => {
+
+		addBookButton.style.display = "none";
+		
+		const cardContainer = document.querySelector('#card-container');
+		cardContainer.style.gridArea = "2/2/3/3";
 		
 		const sidebar = document.createElement('div');
 		document.body.appendChild(sidebar);
 		sidebar.id = "sidebar";
-		sidebar.style.display = "grid";
-		sidebar.style.gridArea = "2 / 1 / 3 / 2";
 		
 
 		const form = document.querySelector("form");
-		form.style.display = "grid";
-		form.style.border = "solid black 1px";
-		form.style.padding = "50px";
 		sidebar.appendChild(form);
+		form.style.display = "grid";
+		form.style.gridTemplate = "1fr 1fr 1fr/ 1fr";
+		
+
+
+		
+	
+
+
+		
 		
 
 	})
