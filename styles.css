@@ -1,15 +1,15 @@
 
-#bookForm {
+body {
+	display: grid;
+	grid-template: 1fr 5fr / 2fr 4fr;
 	
-	border: solid black 1px;
-
-
 }
-
-#form-container {
-	border: black solid 1px;
+form {
 	display: none;
+
+
 }
+
 
 label {
 	font-family: 'Courier New', Courier, monospace;
