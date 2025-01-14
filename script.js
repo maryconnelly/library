@@ -6,8 +6,8 @@ function Book (title, author, pages, read) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
-	this.info = `${this.title} by ${this.author} with ${pages}. ${read}`;
-	}
+}
+
 
 function addBookToLibrary() {
 
@@ -29,7 +29,15 @@ function displayBook() {
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
 			newCard.id = "new-card";
-			newCard.textContent = `${Book.info}`;
+			newCard.textContent = `${Book.title} ${Book.author} ${Book.pages} pgs.`;
+
+
+
+		const removeButton = document.createElement('button');
+		newCard.appendChild(removeButton);
+		removeButton.type = "button";
+		removeButton.id = "remove";
+		removeButton.textContent = "Remove";
 
 	})
 }
