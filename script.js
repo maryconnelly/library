@@ -13,10 +13,19 @@ function addBookToLibrary() {
 	myLibrary.push(new Book('Harry Potter', 'JK Rowling', '700 pgs', 'Already read')); 
 	myLibrary.push(new Book('Murder in Retrospect', 'Agatha Christie', '300 pgs', 'read'));
 
-}
+	document.querySelector('form').addEventListener('submit', (e) => {
+		e.preventDefault();
+
+	let titleInput = document.getElementById('title').value;
+	let authorInput = document.getElementById('author').value;
+	let pagesInput = document.getElementById('pages').value;
+	let readInput = document.getElementById('read').value;
+
+	myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput));
+
+})};
 
 addBookToLibrary();
-
 console.log(myLibrary);
 
 //display book on card
@@ -61,11 +70,6 @@ function displayBook() {
 
 		const readLine = document.createElement('div');
 		newCard.appendChild(readLine);
-
-
-
-
-
 
 		const removeButton = document.createElement('button');
 		newCard.appendChild(removeButton);
