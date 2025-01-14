@@ -120,7 +120,7 @@ function addBookButton() {
 		const form = document.querySelector("form");
 		sidebar.appendChild(form);
 		form.style.display = "grid";
-		form.style.gridTemplate = "1fr 1fr .5fr/ 1fr";
+		form.style.gridTemplate = "1fr .5fr .5fr/ 1fr";
 
 
 	})
