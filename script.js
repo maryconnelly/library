@@ -8,11 +8,19 @@ function Book (title, author, pages, read) {
 	this.read = read;
 }
 
-
 function addBookToLibrary() {
 
-	myLibrary.push(new Book('title1', 'author1', 'pages1', 'read1')); 
-}
+	const submitButton = document.querySelector("#submit");
+	submitButton.addEventListener('click', function(event) {
+		event.preventDefault();
+
+		let titleInput = document.getElementById("title").value;
+		let authorInput = document.getElementById("author").value;
+		let pagesInput = document.getElementById("pages").value;
+		let readInput = document.getElementById("read").value;
+
+	myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput)); 
+})}
 
 addBookToLibrary();
 
@@ -66,15 +74,7 @@ function addBookButton() {
 		sidebar.appendChild(form);
 		form.style.display = "grid";
 		form.style.gridTemplate = "1fr 1fr .5fr/ 1fr";
-		
 
-
-		
-	
-
-
-		
-		
 
 	})
 
