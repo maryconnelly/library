@@ -10,9 +10,6 @@ function Book (title, author, pages, read) {
 
 function addBookToLibrary() {
 
-	myLibrary.push(new Book('Harry Potter', 'JK Rowling', '700 pgs', 'Already read')); 
-	myLibrary.push(new Book('Murder in Retrospect', 'Agatha Christie', '300 pgs', 'read'));
-
 	document.querySelector('form').addEventListener('submit', (e) => {
 		e.preventDefault();
 
@@ -22,8 +19,27 @@ function addBookToLibrary() {
 	let readInput = document.getElementById('read').value;
 
 	myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput));
+	
+	const sidebar = document.querySelector("#sidebar");
+	sidebar.style.display = "none";
 
-})};
+	const addBookButton = document.querySelector("#add");
+	addBookButton.style.display = "block";
+
+	const cardContainer = document.querySelector("#card-container");
+	cardContainer.style.gridArea = "2 / 1 / 3 / 3";
+
+	displayBook();
+
+	function resetForm() {
+	document.getElementById('form').reset();
+	}
+
+	resetForm();
+
+	})
+	
+};
 
 addBookToLibrary();
 console.log(myLibrary);
@@ -31,7 +47,11 @@ console.log(myLibrary);
 //display book on card
 function displayBook() {
 
+	const newestBook = myLibrary[myLibrary.length - 1]; 
+
 	myLibrary.forEach(Book => {
+
+		if (Book === newestBook) {
 
 		const cardContainer = document.querySelector('#card-container');
 		document.body.appendChild(cardContainer);
@@ -77,10 +97,7 @@ function displayBook() {
 		removeButton.id = "remove";
 		removeButton.textContent = "Remove";
 
-	})
-}
-
-displayBook();
+	}})};
 
 //add book button 
 
