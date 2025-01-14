@@ -10,17 +10,10 @@ function Book (title, author, pages, read) {
 
 function addBookToLibrary() {
 
-	const submitButton = document.querySelector("#submit");
-	submitButton.addEventListener('click', function(event) {
-		event.preventDefault();
+	myLibrary.push(new Book('Harry Potter', 'JK Rowling', '700 pgs', 'Already read')); 
+	myLibrary.push(new Book('Murder in Retrospect', 'Agatha Christie', '300 pgs', 'read'));
 
-		let titleInput = document.getElementById("title").value;
-		let authorInput = document.getElementById("author").value;
-		let pagesInput = document.getElementById("pages").value;
-		let readInput = document.getElementById("read").value;
-
-	myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput)); 
-})}
+}
 
 addBookToLibrary();
 
@@ -36,8 +29,41 @@ function displayBook() {
 
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
-			newCard.id = "new-card";
-			newCard.textContent = `${Book.title} ${Book.author} ${Book.pages} pgs.`;
+			newCard.class = "new-card";
+			newCard.style.display = "grid";
+			newCard.style.gridTemplate = "Repeat(4, 1fr) / 1fr";
+			newCard.style.backgroundColor = "#F5EFED";
+			newCard.style.height = "150px";
+			newCard.style.width = "200px";
+			newCard.style.borderRadius = "8px";
+			newCard.style.fontSize = "18px";
+			newCard.style.fontWeight = "400";
+			newCard.style.padding = "15px";
+		
+		const titleLine = document.createElement('div');
+		newCard.appendChild(titleLine);
+		titleLine.textContent = `${Book.title}`;
+		titleLine.style.gridArea = "1 / 1 / 2 / 2";
+		titleLine.style.alignContent = "center";
+
+		const authorLine = document.createElement('div');
+		newCard.appendChild(authorLine);
+		authorLine.textContent = `${Book.author}`;
+		authorLine.style.gridArea = "2 / 1 / 3 / 2";
+		authorLine.style.alignContent = "center";
+		
+
+		const pagesLine = document.createElement('div');
+		newCard.appendChild(pagesLine);
+		pagesLine.textContent = `${Book.pages}`;
+		pagesLine.style.gridArea = "3 / 1 / 4 / 2";
+		pagesLine.style.alignContent = "center";
+
+		const readLine = document.createElement('div');
+		newCard.appendChild(readLine);
+
+
+
 
 
 
