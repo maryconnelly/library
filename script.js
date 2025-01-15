@@ -118,6 +118,9 @@ function displayBook() {
 		removeButton.id = "remove";
 		removeButton.textContent = "Remove";
 		removeButton.style.gridArea = "4 / 1 / 5 / 2";
+		removeButton.addEventListener('click', () => {
+			
+		})
 	}})};
 
 //add book button 
@@ -141,7 +144,7 @@ function addBookButton() {
 		const form = document.querySelector("form");
 		sidebar.appendChild(form);
 		form.style.display = "grid";
-		form.style.gridTemplate = "1fr 1fr/ 1fr";
+		form.style.gridTemplate = " 2fr repeat(2, 1fr) / 1fr";
 
 
 	})

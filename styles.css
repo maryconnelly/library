@@ -69,7 +69,13 @@ form {
 #checkbox-container {
 	display: grid; 
 	grid-area: 2 / 1 / 3 / 2;
-	grid-template: 1fr 1fr / .1fr 1fr;
+	grid-template: 1fr / .1fr 1fr;
+}
+
+#submit-container {
+	display: grid;
+	grid-area: 3 / 1 / 4 / 2;
+	grid-template: 1fr / 1fr;
 }
 
 label {
@@ -101,9 +107,6 @@ input[checkbox] {
 	grid-template: 2fr 1fr / 1fr;
 }
 
-button[type="submit"] {
-	grid-area: 2 / 1 / 3 / 2;
-}
 
 
 
