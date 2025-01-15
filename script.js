@@ -59,6 +59,7 @@ function displayBook() {
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
 			newCard.class = "new-card";
+			newCard.setAttribute("data-index", "myLibrary.length - 1");
 			newCard.style.display = "grid";
 			newCard.style.gridTemplate = "Repeat(4, 1fr) / 1fr";
 			newCard.style.backgroundColor = "#F5EFED";
@@ -91,11 +92,16 @@ function displayBook() {
 		const readLine = document.createElement('div');
 		newCard.appendChild(readLine);
 
+		// const readToggle = document.createElement('button');
+		// newCard.appendChild(readToggle);
+		// readToggle.style.type=
+
 		const removeButton = document.createElement('button');
 		newCard.appendChild(removeButton);
 		removeButton.type = "button";
 		removeButton.id = "remove";
 		removeButton.textContent = "Remove";
+		
 
 	}})};
 
@@ -120,7 +126,7 @@ function addBookButton() {
 		const form = document.querySelector("form");
 		sidebar.appendChild(form);
 		form.style.display = "grid";
-		form.style.gridTemplate = "1fr .75fr .25fr/ 1fr";
+		form.style.gridTemplate = "1fr 1fr/ 1fr";
 
 
 	})
@@ -128,5 +134,4 @@ function addBookButton() {
 }
 
 addBookButton();
-
 
