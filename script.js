@@ -91,6 +91,22 @@ function displayBook() {
 
 		const readLine = document.createElement('div');
 		newCard.appendChild(readLine);
+		readLine.style.gridArea = "4 / 1 / 5 / 2"
+		
+		const readCheckbox = document.createElement('input');
+		readCheckbox.type = "checkbox";
+		readCheckbox.id = "read-checkbox";
+		readLine.appendChild(readCheckbox);
+
+		const readLabel= document.createElement('label');
+		readLabel.for = "read-checkbox";
+		readLabel.textContent = "Read";
+		readLine.appendChild(readLabel);
+	
+		
+		
+	
+
 
 		// const readToggle = document.createElement('button');
 		// newCard.appendChild(readToggle);
@@ -101,8 +117,7 @@ function displayBook() {
 		removeButton.type = "button";
 		removeButton.id = "remove";
 		removeButton.textContent = "Remove";
-		
-
+		removeButton.style.gridArea = "4 / 1 / 5 / 2";
 	}})};
 
 //add book button 
