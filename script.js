@@ -6,43 +6,44 @@ function Book (title, author, pages, read) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
+	this.id = crypto.randomUUID();
 }
 
 function addBookToLibrary() {
-
+	
 	document.querySelector('form').addEventListener('submit', (e) => {
 		e.preventDefault();
-
-	let titleInput = document.getElementById('title').value;
-	let authorInput = document.getElementById('author').value;
-	let pagesInput = document.getElementById('pages').value;
-	let readInput = document.getElementById('read').value;
-
-	myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput));
-	
-	const sidebar = document.querySelector("#sidebar");
-	sidebar.style.display = "none";
-
-	const addBookButton = document.querySelector("#add");
-	addBookButton.style.display = "block";
-
-	const cardContainer = document.querySelector("#card-container");
-	cardContainer.style.gridArea = "2 / 1 / 3 / 3";
-
-	displayBook();
-
-	function resetForm() {
-	document.getElementById('form').reset();
-	}
-
-	resetForm();
-
+		
+		let titleInput = document.getElementById('title').value;
+		let authorInput = document.getElementById('author').value;
+		let pagesInput = document.getElementById('pages').value;
+		let readInput = document.getElementById('read').value;
+		
+		myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput));
+		
+		const sidebar = document.querySelector("#sidebar");
+		sidebar.style.display = "none";
+		
+		const addBookButton = document.querySelector("#add");
+		addBookButton.style.display = "block";
+		
+		const cardContainer = document.querySelector("#card-container");
+		cardContainer.style.gridArea = "2 / 1 / 3 / 3";
+		
+		displayBook();
+		
+		function resetForm() {
+			document.getElementById('form').reset();
+		}
+		
+		resetForm();
+		
 	})
 	
+	console.log(myLibrary);
 };
 
 addBookToLibrary();
-console.log(myLibrary);
 
 //display book on card
 function displayBook() {
@@ -59,7 +60,7 @@ function displayBook() {
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
 			newCard.class = "new-card";
-			newCard.setAttribute("data-index", "myLibrary.length - 1");
+			newCard.setAttribute("data-id", newestBook.id);
 			newCard.style.display = "grid";
 			newCard.style.gridTemplate = "Repeat(4, 1fr) / 1fr";
 			newCard.style.backgroundColor = "#F5EFED";
@@ -102,15 +103,17 @@ function displayBook() {
 		readLabel.for = "read-checkbox";
 		readLabel.textContent = "Read";
 		readLine.appendChild(readLabel);
+
+		const readCheck = document.createElement('button');
+		readCheck.type = "checkbox";
+		readLine.appendChild(readCheck);
+		
+
+
 	
 		
 		
 	
-
-
-		// const readToggle = document.createElement('button');
-		// newCard.appendChild(readToggle);
-		// readToggle.style.type=
 
 		const removeButton = document.createElement('button');
 		newCard.appendChild(removeButton);
@@ -119,7 +122,7 @@ function displayBook() {
 		removeButton.textContent = "Remove";
 		removeButton.style.gridArea = "4 / 1 / 5 / 2";
 		removeButton.addEventListener('click', () => {
-			
+
 		})
 	}})};
 
