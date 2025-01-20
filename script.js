@@ -49,11 +49,9 @@ addBookToLibrary();
 //display book on card
 function displayBook() {
 
-	const newestBook = myLibrary[myLibrary.length - 1]; 
+		for (i = 0; i < myLibrary.length; i++ ) {
 
-	myLibrary.forEach(Book => {
-
-		if (Book === newestBook) {
+		const book = myLibrary[i];
 
 		const cardContainer = document.querySelector('#card-container');
 		document.body.appendChild(cardContainer);
@@ -61,7 +59,6 @@ function displayBook() {
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
 			newCard.class = "new-card";
-			newCard.setAttribute("data-id", newestBook.id);
 			newCard.style.display = "grid";
 			newCard.style.gridTemplate = "Repeat(4, 1fr) / 1fr";
 			newCard.style.backgroundColor = "#F5EFED";
@@ -74,20 +71,20 @@ function displayBook() {
 		
 		const titleLine = document.createElement('div');
 		newCard.appendChild(titleLine);
-		titleLine.textContent = `${Book.title}`;
+		titleLine.textContent = `${book.title}`;
 		titleLine.style.gridArea = "1 / 1 / 2 / 2";
 		titleLine.style.alignContent = "center";
 
 		const authorLine = document.createElement('div');
 		newCard.appendChild(authorLine);
-		authorLine.textContent = `${Book.author}`;
+		authorLine.textContent = `${book.author}`;
 		authorLine.style.gridArea = "2 / 1 / 3 / 2";
 		authorLine.style.alignContent = "center";
 		
 
 		const pagesLine = document.createElement('div');
 		newCard.appendChild(pagesLine);
-		pagesLine.textContent = `${Book.pages}`;
+		pagesLine.textContent = `${book.pages}`;
 		pagesLine.style.gridArea = "3 / 1 / 4 / 2";
 		pagesLine.style.alignContent = "center";
 
@@ -125,7 +122,7 @@ function displayBook() {
 		removeButton.addEventListener('click', () => {
 
 		})
-	}})};
+	}};
 
 //add book button 
 
