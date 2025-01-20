@@ -19,7 +19,8 @@ function addBookToLibrary() {
 		let pagesInput = document.getElementById('pages').value;
 		let readInput = document.getElementById('read').value;
 		
-		myLibrary.push(new Book(titleInput, authorInput, pagesInput, readInput));
+		const newBook = new Book(titleInput, authorInput, pagesInput, readInput);
+		myLibrary.push(newBook);
 		
 		const sidebar = document.querySelector("#sidebar");
 		sidebar.style.display = "none";
@@ -155,4 +156,3 @@ function addBookButton() {
 }
 
 addBookButton();
-
