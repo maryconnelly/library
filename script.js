@@ -126,13 +126,13 @@ function displayBook() {
 
 //add book button 
 
-function addBookButton() {
+function openFormButton() {
 	const header = document.querySelector("#header");
-	const addBookButton = document.querySelector("#add");
-	header.appendChild(addBookButton);
-	addBookButton.addEventListener('click', () => {
+	const openFormButton = document.querySelector("#open-form-button");
+	header.appendChild(openFormButton);
+	openFormButton.addEventListener('click', () => {
 
-		addBookButton.style.display = "none";
+		openFormButton.style.display = "none";
 		
 		const cardContainer = document.querySelector('#card-container');
 		cardContainer.style.gridArea = "2/2/3/3";
@@ -152,4 +152,4 @@ function addBookButton() {
 
 }
 
-addBookButton();
+openFormButton();
