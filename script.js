@@ -6,6 +6,7 @@ function Book (title, author, pages, read) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
+	this.id = crypto.randomUUID();
 	}
 
 function addBookToLibrary() {
@@ -13,10 +14,10 @@ function addBookToLibrary() {
 	document.querySelector('form').addEventListener('submit', (e) => {
 		e.preventDefault();
 
-	let titleInput = document.getElementById('titleInput').value;
-	let authorInput = document.getElementById('authorInput').value;
-	let pagesInput = document.getElementById('pagesInput').value;
-	let readInput = document.getElementById('readInput').value;
+		let titleInput = document.getElementById('titleInput').value;
+		let authorInput = document.getElementById('authorInput').value;
+		let pagesInput = document.getElementById('pagesInput').value;
+		let readInput = document.getElementById('readInput').value;
 
 	const newBook = new Book(titleInput, authorInput, pagesInput, readInput) 
 	myLibrary.push(newBook);
@@ -44,14 +45,10 @@ function addBookToLibrary() {
 addBookToLibrary();
 console.log(myLibrary);
 
-//display book on card
 function displayBook() {
 
-	const newestBook = myLibrary[myLibrary.length - 1]; 
 
-	myLibrary.forEach(Book => {
 
-		if (Book === newestBook) {
 
 		const cardContainer = document.querySelector('#card-container');
 		document.body.appendChild(cardContainer);
@@ -59,7 +56,7 @@ function displayBook() {
 		const newCard = document.createElement('div');
 		cardContainer.appendChild(newCard);
 			newCard.class = "new-card";
-			newCard.setAttribute("data-index", "myLibrary.length - 1");
+			newCard.id = `${Book.id}`;
 			newCard.style.display = "grid";
 			newCard.style.gridTemplate = "Repeat(4, 1fr) / 1fr";
 			newCard.style.backgroundColor = "#F5EFED";
@@ -114,10 +111,14 @@ function displayBook() {
 		removeButton.id = "remove";
 		removeButton.textContent = "Remove";
 		removeButton.style.gridArea = "4 / 1 / 5 / 2";
+
 		removeButton.addEventListener('click', () => {
-			
-		})
-	}})};
+			if (Book.id === newCard.id ) {
+				const index = myLibrary.indexOf(Book.id);
+				delete myLibrary[index];
+				cardContainer.removeChild(newCard);
+		}})
+	}};
 
 
 function openForm() {
