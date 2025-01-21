@@ -24,8 +24,8 @@ function addBookToLibrary() {
 	const sidebar = document.querySelector("#sidebar");
 	sidebar.style.display = "none";
 
-	const addBookButton = document.querySelector("#add");
-	addBookButton.style.display = "block";
+	const openFormButton = document.querySelector("#open-form-button");
+	openFormButton.style.display = "block";
 
 	const cardContainer = document.querySelector("#card-container");
 	cardContainer.style.gridArea = "2 / 1 / 3 / 3";
@@ -104,14 +104,10 @@ function displayBook() {
 		readLabel.textContent = "Read";
 		readLine.appendChild(readLabel);
 	
-		
-		
-	
-
 
 		// const readToggle = document.createElement('button');
 		// newCard.appendChild(readToggle);
-		// readToggle.style.type=
+		// readToggle.style.type = 'checkbox';
 
 		const removeButton = document.createElement('button');
 		newCard.appendChild(removeButton);
@@ -124,15 +120,14 @@ function displayBook() {
 		})
 	}})};
 
-//add book button 
 
-function addBookButton() {
+function openForm() {
 	const header = document.querySelector("#header");
-	const addBookButton = document.querySelector("#add");
-	header.appendChild(addBookButton);
-	addBookButton.addEventListener('click', () => {
+	const openFormButton = document.querySelector("#open-form-button");
+	header.appendChild(openFormButton);
+	openFormButton.addEventListener('click', () => {
 
-		addBookButton.style.display = "none";
+		openFormButton.style.display = "none";
 		
 		const cardContainer = document.querySelector('#card-container');
 		cardContainer.style.gridArea = "2/2/3/3";
@@ -141,15 +136,10 @@ function addBookButton() {
 		document.body.appendChild(sidebar);
 		sidebar.id = "sidebar";
 		
-
 		const form = document.querySelector("form");
 		sidebar.appendChild(form);
 		form.style.display = "grid";
 		form.style.gridTemplate = " 2fr repeat(2, 1fr) / 1fr";
-
-
 	})
-
 }
-
-addBookButton();
+openForm();
