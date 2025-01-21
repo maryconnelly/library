@@ -6,36 +6,35 @@ function Book (title, author, pages, read) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
-}
+	}
 
 function addBookToLibrary() {
 
 	document.querySelector('form').addEventListener('submit', (e) => {
 		e.preventDefault();
 
-	let titleInput = document.getElementById('title').value;
-	let authorInput = document.getElementById('author').value;
-	let pagesInput = document.getElementById('pages').value;
-	let readInput = document.getElementById('read').value;
+	let titleInput = document.getElementById('titleInput').value;
+	let authorInput = document.getElementById('authorInput').value;
+	let pagesInput = document.getElementById('pagesInput').value;
+	let readInput = document.getElementById('readInput').value;
 
 	const newBook = new Book(titleInput, authorInput, pagesInput, readInput) 
 	myLibrary.push(newBook);
 	
-	const sidebar = document.querySelector("#sidebar");
-	sidebar.style.display = "none";
+		const sidebar = document.querySelector("#sidebar");
+		sidebar.style.display = "none";
 
-	const openFormButton = document.querySelector("#open-form-button");
-	openFormButton.style.display = "block";
+		const openFormButton = document.querySelector("#open-form-button");
+		openFormButton.style.display = "block";
 
-	const cardContainer = document.querySelector("#card-container");
-	cardContainer.style.gridArea = "2 / 1 / 3 / 3";
+		const cardContainer = document.querySelector("#card-container");
+		cardContainer.style.gridArea = "2 / 1 / 3 / 3";
 
 	displayBook();
 
 	function resetForm() {
-	document.getElementById('form').reset();
-	}
-
+		document.getElementById('form').reset();
+		}
 	resetForm();
 
 	})
