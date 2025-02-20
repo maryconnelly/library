@@ -5,15 +5,14 @@ const form = document.querySelector("#form");
 const cardContainer = document.querySelector("#card-container");
 const myLibrary = [];
 
-function Book(title, author, pages, status) {
+class Book {
+	constructor (title, author, pages, status) {
 	this.title = title
 	this.author = author;
 	this.pages = pages;
 	this.status = status;
 }
-
-Book.prototype.toggleStatus = function() {
-this.status = !this.status;
+	toggleStatus() {this.status = !this.status;};
 }
 
 function toggleStatus(index) {
